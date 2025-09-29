@@ -1,103 +1,117 @@
+"use client";
+
 import Image from "next/image";
+import LayoutContainer from "@/app/components/LayoutContainer"
+import { Inter } from "next/font/google";
+import Link from "next/link";
+import { useState } from "react";
+import Tilt from 'react-parallax-tilt';
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export default function Home() {
+  const [knowMeToggle, setKnowMeToggle] = useState(false);
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <LayoutContainer setOverlay={knowMeToggle}>
+        <div>
+          <div className="flex stack-responsiveness justify-center items-center !mx-[5%] spacing-adjustments-hero">
+            <Tilt className="w-[320px] h-[320px] rounded-[161px] overflow-hidden reposition-headshot" glareEnable={true} glareColor='white' glarePosition='all' glareMaxOpacity={0.38} glareReverse>
+              <Image src="/self-portrait.png" alt="" width={320} height={320} className="element-shadow border-solid border-4 border-[#F31D64] rounded-[161px] mr-4 shadow-xl"></Image>
+            </Tilt>
+            <div className="ml-4">
+              <div className={`text-[#F31D64] primary-title-sizing font-extrabold tracking-[3%] element-shadow`}
+                style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                Hi, I'm Jake Chisholm,
+              </div>
+              <div className={`text-[#C8A3D6] text-[32px] font-semibold tracking-[3%] element-shadow secondary-title-sizing`}
+                style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                &nbsp; Computer Engineering Student at McMaster University. Check out my portfolio!
+              </div>
+              <button className={`bg-[#F31D64] button-hover button-responsiveness-hero element-shadow text-white font-semibold tracking-[3%] rounded-[40px] cursor-pointer`}
+                      onClick={() => setKnowMeToggle(true)}
+                style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                Get to know me
+              </button>
+              { knowMeToggle ? ( 
+                <div className={`fixed top-[50%] left-[50%] center-animation border-2 border-solid border-[#C8A3D6] z-[998] bg-[#440571] w-[250px] max-w-[80%]
+                  flex justify-center items-center text-[32px] font-semibold tracking-[3%] py-8 `}
+                  style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                  <ul className="pr-10">
+                    <li>
+                      <Link className="overlay-text-hover" href="/about">About</Link>
+                    </li>
+                    <li>
+                      <Link className="overlay-text-hover" href="/projects">Projects</Link>
+                    </li>
+                    <li>
+                      <Link className="overlay-text-hover" href="/contact">Contact</Link>
+                    </li>
+                  </ul>
+                  <button onClick={() => setKnowMeToggle(false)} className="cursor-pointer absolute top-1 right-[-2px] w-[60px] h-[60px] z-[1001]">
+                    <Image 
+                    src={"/exit-icon.png"} alt={"Exit"}
+                    width={60} height={60}              
+                    />
+                  </button>
+                </div> ) : ( "" ) }
+            </div>
+          </div>
+          <div className="bg-[#3A0055] h-[4px] w-[88%] mt-30 mb-30 mx-auto">
+          </div>
+          <div>
+            <div className="flex justify-center items-center text-[#C8A3D6] second-primary-title-sizing font-[${inter}] font-bold tracking-[3%] mb-30 element-shadow spacing-adjustments-hero-secondary"
+              style={{
+                    fontFamily: inter.style.fontFamily,
+                }}>
+              Find Me Online
+            </div>
+            <div className="flex justify-center button-spacing-online-section items-center page-bottom-spacing-adjustment">
+              <Link href="https://github.com" className="bg-[#F31D64] button-hover py-3 px-12 rounded-[40px] cursor-pointer flex justify-around items-center element-shadow">
+                <span className={`text-white text-[24px] font-[${inter}] font-semibold tracking-[3%] mr-2`}
+                  style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                  GitHub
+                </span>
+                <Image src="/github-for-portfolio.png" alt="GitHub logo" width={48} height={48}></Image>
+              </Link>
+              <Link href="https://ca.linkedin.com/in/jake-chisholm-57a785307" className="bg-[#F31D64] button-hover py-3 px-12 rounded-[40px] cursor-pointer flex justify-around items-center element-shadow">
+                <span className={`text-white text-[24px] font-[${inter}] font-semibold tracking-[3%] mr-2`}
+                  style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                  LinkedIn
+                </span>
+                <Image src="/linkedin-for-portfolio.png" alt="LinkedIn logo" width={48} height={48}></Image>
+              </Link>
+              <button className="bg-[#F31D64] button-hover py-3 px-12 rounded-[40px] cursor-pointer flex justify-around items-center element-shadow" onClick={() => window.open('./JacobChisholm-Resume-Fall2025.pdf')}>
+                <span className={`text-white text-[24px] font-[${inter}] font-semibold tracking-[3%] mr-2`}
+                  style={{
+                    fontFamily: inter.style.fontFamily,
+                  }}>
+                  Resume
+                </span>
+                <Image src="/resume-for-portfolio.png" alt="Resume logo" width={48} height={48}></Image>
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </LayoutContainer>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +24,561 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.center-animation {
+  transform: translate(-50%,-50%);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  pointer-events: none;
+  z-index: 100;
+}
+
+#overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.element-shadow {
+  filter: drop-shadow(0 2 6 rgba(0,0,0,0.15)) !important;
+}
+
+/* Button hovering styles */
+
+.button-hover {
+  transition: background-color 150ms ease;
+}
+
+.button-hover:hover {
+  background-color: #e40e55 !important;
+}
+
+.button-hover:active {
+  background-color: #da044b !important;
+}
+
+/* Underline Styles */
+
+.smooth-underline {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+}
+
+.smooth-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #F31D64;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.smooth-underline:hover::after,
+.smooth-underline:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+/* Responsive Design */
+
+/* Mobile Devices */
+@media (max-width: 575.98px) {
+
+  /* LayoutContainer */
+
+  .sections-spacing {
+    display: none;
+  }
+  .footer-sections-spacing{
+    display: none;
+  }
+  .header-text-responsiveness {
+    font-size: 20px !important;
+  }
+  .header-footer-flex-responsiveness {
+    justify-content: center;
+    width: 100%;
+  }
+  .responsive-header-name-margin {
+    margin-left: 0;
+  }
+  .responsive-footer-name-margin {
+    margin-left: 0;
+  }
+
+  /* Hero Page */
+
+  .spacing-adjustments-hero {
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
+  .spacing-adjustments-hero-secondary{
+    margin-top: 100px;
+  }
+  .button-spacing-online-section {
+    flex-direction: column;
+    gap: 64px;
+  }
+  .page-bottom-spacing-adjustment {
+    margin-bottom: 100px;
+  }
+  .stack-responsiveness {
+    flex-direction: column;
+  }
+  .reposition-headshot {
+    align-self: flex-start !important;
+    margin-left: 5.86vw;
+  }
+  .primary-title-sizing {
+    font-size: 32px;
+  }
+  .secondary-title-sizing {
+    width: 360px;
+    font-size: 16px;
+  }
+  .second-primary-title-sizing{
+    font-size: 32px;
+  }
+  .button-responsiveness-hero {
+    font-size: 20px;
+    padding-block: 13px;
+    padding-inline: 27px;
+    width: 229px;
+    margin-top: 12px;
+  }
+  .overlay-text-hover {
+    color: #C8A3D6;
+    transition: color 300ms ease;
+  }
+  .overlay-text-hover:hover {
+    color: #b994c7 !important;
+  }
+  .overlay-text-hover:active {
+    color: #af8abd !important;
+  }
+
+  /* About page */
+
+  .adjust-content-margins {
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  /* Projects page */
+
+  .eng-academy-margins {
+    margin-inline: 24px;
+  }
+  .synthesizer-margins {
+    margin-inline: 24px;
+  }
+  .future-projects-text-sizing {
+    font-size: 16px;
+  }
+  .subtitle-text-sizing {
+    font-size: 24px;
+  }
+  .width-adjustments-responsiveness {
+    width: 80%;
+  }
+  .add-margin-mobile {
+    margin-bottom: 10px;
+  }
+
+  /* Contact Page */
+
+  .contact-input-field-width {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .add-input-margin-mobile {
+    margin-bottom: 20px;
+  }
+
+  .reduce-margin-contact-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .button-responsiveness-contact {
+    font-size: 20px;
+    padding-block: 13px;
+    padding-inline: 27px;
+    width: 133px;
+    margin-top: 12px;
+  }
+
+  /* General */
+
+  .page-title-responsiveness {
+    font-size: 56px;
+  }
+  
+  
+}
+
+/* Small devices (portrait tablets and large phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .sections-spacing {
+    width: 300px;
+  }
+  .footer-sections-spacing {
+    display: none;
+  }
+  .header-text-responsiveness {
+    font-size: 20px !important;
+  }
+  .header-footer-flex-responsiveness {
+    justify-content: space-between;
+  }
+  .responsive-header-name-margin {
+    margin-left: 50px;
+  }
+  .responsive-footer-name-margin {
+    margin-left: 75px;
+  }
+
+  /* Hero Page */
+
+  .spacing-adjustments-hero {
+    margin-top: 150px;
+    margin-bottom: 200px; 
+  }
+  .spacing-adjustments-hero-secondary{
+    margin-top: 100px;
+  }
+  .button-spacing-online-section {
+    flex-direction: column;
+    gap: 64px;
+  }
+  .page-bottom-spacing-adjustment {
+    margin-bottom: 100px;
+  }
+  .stack-responsiveness {
+    flex-direction: column;
+  }
+  .reposition-headshot {
+    align-self: flex-start !important;
+    margin-left: 5.86vw;
+  }
+  .primary-title-sizing {
+    font-size: 40px;
+  }
+  .secondary-title-sizing {
+    font-size: 24px;
+    width: 550px;
+  }
+  .second-primary-title-sizing{
+    font-size: 48px;
+  }
+  .button-responsiveness-hero {
+    font-size: 20px;
+    padding-block: 13px;
+    padding-inline: 27px;
+    width: 229px;
+    margin-top: 12px;
+  }
+
+  /* About page */
+
+  .adjust-content-margins {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Contact Page */
+  
+  .contact-input-field-width {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .add-input-margin-mobile {
+    margin-bottom: 20px;
+  }
+
+  .reduce-margin-contact-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .button-responsiveness-contact {
+    font-size: 20px;
+    padding-block: 13px;
+    padding-inline: 27px;
+    width: 133px;
+    margin-top: 12px;
+  }
+
+  /* Projects page */
+
+  .eng-academy-margins {
+    margin-inline: 24px;
+  }
+  .synthesizer-margins {
+    margin-inline: 24px;
+  }
+  .future-projects-text-sizing {
+    font-size: 18px;
+  }
+  .subtitle-text-sizing {
+    font-size: 28px;
+  }
+  .width-adjustments-responsiveness {
+    width: 80%;
+  }
+  .add-margin-mobile {
+    margin-bottom: 10px;
+  }
+
+   /* General */
+
+  .page-title-responsiveness {
+    font-size: 56px;
+  }
+
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sections-spacing {
+    width: 400px;
+  }
+  .footer-sections-spacing {
+    width: 300px;
+  }
+  .header-text-responsiveness {
+    font-size: 22px !important;
+  }
+  .header-footer-flex-responsiveness {
+    justify-content: space-between;
+  }
+  .responsive-header-name-margin {
+    margin-left: 50px;
+  }
+  .responsive-footer-name-margin {
+    margin-left: 75px;
+  }
+
+  /* Hero Page */
+
+  .spacing-adjustments-hero {
+    margin-top: 150px;
+    margin-bottom: 200px;
+  }
+  .spacing-adjustments-hero-secondary{
+    margin-top: 200px;
+  }
+  .button-spacing-online-section {
+    gap: 64px;
+  }
+  .page-bottom-spacing-adjustment {
+    margin-bottom: 300px;
+  }
+  .stack-responsiveness {
+    flex-direction: column;
+  }
+  .reposition-headshot {
+    align-self: flex-start !important;
+    margin-left: 5.86vw;
+  }
+  .primary-title-sizing {
+    font-size: 64px;
+  }
+  .secondary-title-sizing {
+    font-size: 32px;
+    width: 750px;
+  }
+  .second-primary-title-sizing{
+    font-size: 48px;
+  }
+  .button-responsiveness-hero {
+    font-size: 24px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    width: 275px;
+    margin-top: 24px;
+  }
+
+  /* Contact Page */
+  
+  .contact-input-field-width {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 640px;
+    margin-bottom: 40px;
+  }
+
+  .reduce-margin-contact-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .button-responsiveness-contact {
+    font-size: 24px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    width: 160px;
+    margin-top: 24px;
+  }
+
+  /* About page */
+
+  .adjust-content-margins {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Projects page */
+
+  .eng-academy-margins {
+    margin-inline: 24px;
+  }
+  .synthesizer-margins {
+    margin-inline: 24px;
+  }
+  .future-projects-text-sizing {
+    font-size: 20px;
+  }
+  .subtitle-text-sizing {
+    font-size: 32px;
+  }
+  .width-adjustments-responsiveness {
+    width: 36%;
+  }
+  .add-margin-mobile {
+    margin-bottom: 0px;
+  }
+
+   /* General */
+
+  .page-title-responsiveness {
+    font-size: 64px;
+  }
+
+  
+}
+
+@media (min-width: 992px) {
+  .sections-spacing {
+    width: 500px;
+  }
+  .footer-sections-spacing {
+    width: 400px;
+  }
+  .header-footer-flex-responsiveness {
+    justify-content: space-between;
+  }
+  .responsive-header-name-margin {
+    margin-left: 50px;
+  }
+  .responsive-footer-name-margin {
+    margin-left: 75px;
+  }
+
+  /* Hero Page */
+
+  .spacing-adjustments-hero {
+    margin-top: 200px;
+    margin-bottom: 300px;
+  }
+  .spacing-adjustments-hero-secondary{
+    margin-top: 200px;
+  }
+  .page-bottom-spacing-adjustment {
+    margin-bottom: 300px;
+  }
+  .button-spacing-online-section {
+    gap: 128px;
+  }
+  .stack-responsiveness {
+    flex-direction: row;
+  }
+  .primary-title-sizing {
+    font-size: 64px;
+  }
+  .secondary-title-sizing {
+    font-size: 32px;
+    width: 750px;
+  }
+  .second-primary-title-sizing{
+    font-size: 48px;
+  }
+  .button-responsiveness-hero {
+    font-size: 24px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    width: 275px;
+    margin-top: 24px;
+  }
+
+  /* Contact Page */
+  
+  .contact-input-field-width {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 640px;
+    margin-bottom: 40px;
+  }
+
+  .reduce-margin-contact-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .button-responsiveness-contact {
+    font-size: 24px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    width: 160px;
+    margin-top: 24px;
+  }
+
+  /* About page */
+
+  .adjust-content-margins {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Projects page */
+
+  .eng-academy-margins {
+    margin-left: 15%;
+  }
+  .synthesizer-margins {
+    margin-right: 15%;
+  }
+  .future-projects-text-sizing {
+    font-size: 20px;
+  }
+  .subtitle-text-sizing {
+    font-size: 32px;
+  }
+  .width-adjustments-responsiveness {
+    width: 36%;
+  }
+  .add-margin-mobile {
+    margin-bottom: 0px;
+  }
+
+   /* General */
+
+  .page-title-responsiveness {
+    font-size: 64px;
+    
+  }
+
 }
