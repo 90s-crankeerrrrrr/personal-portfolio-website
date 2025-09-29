@@ -30,7 +30,7 @@ export default function Home() {
                 style={{
                     fontFamily: inter.style.fontFamily,
                   }}>
-                Hi, I'm Jake Chisholm,
+                Hi, I&apos;m Jake Chisholm,
               </div>
               <div className={`text-[#C8A3D6] text-[32px] font-semibold tracking-[3%] element-shadow secondary-title-sizing`}
                 style={{
@@ -46,7 +46,7 @@ export default function Home() {
                 Get to know me
               </button>
               { knowMeToggle ? ( 
-                <div className={`fixed top-[50%] left-[50%] center-animation border-2 border-solid border-[#C8A3D6] z-[998] bg-[#440571] w-[250px] max-w-[80%]
+                <div className={`fixed top-[50%] left-[50%] text-[#C8A3D6] center-animation border-2 border-solid border-[#C8A3D6] z-[998] bg-[#440571] w-[250px] max-w-[80%]
                   flex justify-center items-center text-[32px] font-semibold tracking-[3%] py-8 `}
                   style={{
                     fontFamily: inter.style.fontFamily,

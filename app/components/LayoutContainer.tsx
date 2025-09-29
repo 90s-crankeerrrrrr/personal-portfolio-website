@@ -53,7 +53,7 @@ const LayoutContainer: React.FC<LayoutContainerProps> = ({ children, setOverlay 
         </main>
         <footer className=" h-[70px] flex header-footer-flex-responsiveness items-center bg-[#300047] flex-shrink-0 text-[#C8A3D6] font-semibold">
             <div className="responsive-footer-name-margin" style={{fontFamily: inter.style.fontFamily}}>
-                {year} Jake Chisholm's Portfolio Website
+                {year} Jake Chisholm&apos;s Portfolio Website
             </div>
             <div className="flex justify-between items-center footer-sections-spacing w-[400px] mr-[75px]">
                 <Link className="smooth-underline" href="https://www.github.com" style={{fontFamily: inter.style.fontFamily}}>
