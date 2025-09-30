@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import Image from "next/image";
 import Video from 'next-video';
 import DSASnakeGame from "@/videos/dsa-snake-game-demo.mp4";
+import FightingGame from "@/videos/fighting-game-demo.mp4";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -82,11 +83,11 @@ const Projects = () => {
               In a group with two other individuals, I assisted in developing a multi-player fighting game, played on a single device.
               This game was programmed in Java, utilizing the libGDX game engine. This game included full menu navigation, multiple characters
               with unique movesets, Computer Player Characters &lpar;CPUs&rpar;, multiple stages, unlockables & more. This project is publicly accessible
-              on my GitHub account.
+              on my GitHub account. The video demo on the right shows me playing with my friend, and a CPU at the end.
             </div>
           </div>
           <div className='relative w-full max-w-[750px] aspect-video'>
-            <Video src={DSASnakeGame}/>
+            <Video src={FightingGame}/>
           </div>
         </div>
         <div className="bg-[#3A0055] h-[4px] w-[88%] mt-30 mb-30 mx-auto"/>
@@ -105,7 +106,7 @@ const Projects = () => {
               Eng Academy
             </div>
             <div className="future-projects-text-sizing text-[#C8A3D6] tracking-[3%] text-center mb-[130px]">
-              In a group with two other individuals, I am currently developing a website called Eng Academy, focusing on front-end and UI/UX design.
+              In a team with two other individuals, I am currently developing a website called Eng Academy, focusing on front-end and UI/UX design.
               The purpose of this website is to provide a one-stop-shop for engineering students of all fields to have strong academic resources and 
               interview prep. Think sort of somewhere between Khan Academy and Duolingo, but for university level engineering content. Planned for first release
               in Fall 2025!
