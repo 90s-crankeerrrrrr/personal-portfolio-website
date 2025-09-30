@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         port: 465,
         secure: true,
         auth: {
-            user: process.env.RECIPIENT_EMAIL,
+            user: "jakechisholm06@gmail.com",
             pass: process.env.SMTP_KEY,
         }
     })
